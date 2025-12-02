@@ -1,0 +1,3 @@
+[console_scripts]
+stormoverlay = stormoverlay.stormoverlay:main
+wiski = stormoverlay.wiski:main

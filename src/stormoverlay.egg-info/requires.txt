@@ -1,0 +1,4 @@
+mikeio>=2.6.0
+mikeio1d>=1.1.1
+numpy>=2.3.4
+pandas>=2.3.3
