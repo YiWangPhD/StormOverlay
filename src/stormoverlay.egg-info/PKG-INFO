@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: stormoverlay
-Version: 0.2.1
+Version: 0.2.2
 Summary: Add your description here
 Requires-Python: >=3.11
 Description-Content-Type: text/markdown
@@ -45,7 +45,7 @@ Requires-Dist: pandas>=2.3.3
 
 3. install the tool
 	
-	pip install "J:\TOOLS\StormOverlay\stormoverlay-0.2-py3-none-any.whl" --trusted-host pypi.python.org
+	pip install "J:\TOOLS\StormOverlay\stormoverlay-0.2.2-py3-none-any.whl" --trusted-host pypi.python.org
 		
 ****************************
 ***** How to upgrade to newer versions
@@ -57,7 +57,7 @@ Requires-Dist: pandas>=2.3.3
 
 2. install the tool
 	
-	pip install "J:\TOOLS\StormOverlay\stormoverlay-0.2-py3-none-any.whl" --trusted-host pypi.python.org --force-reinstall
+	pip install "J:\TOOLS\StormOverlay\stormoverlay-0.2.2-py3-none-any.whl" --trusted-host pypi.python.org --force-reinstall
 	
 	note that the whl file should have a newer version number
 	
@@ -95,10 +95,14 @@ Requires-Dist: pandas>=2.3.3
 	
 	rainfall data will be downloaded from wiski
 	
-5. results are displayed in conda prompt. 
+5. use --climate to select a different set of IDF curves. supported climate key words are: EX, 2050M, 2050H, 2100M, 2100H
+	
+	stormoverlay BU07 2024-10-10 2024-10-20 --climate 2050M
+
+6. results are displayed in conda prompt. 
     to save a csv file, use option --savecsv at the end of the command
 
-6. use the provided idf_template.xlsx to quickly create IDF curves
+7. use the provided idf_template.xlsx to quickly create IDF curves
 	
 ****************************
 ***** Notes
@@ -120,12 +124,13 @@ Requires-Dist: pandas>=2.3.3
 0.1.1 	- updated print output. consolidated data frames and series.
 0.2		- added return periods to AEP, added date time columns, export to csv, created idf_template.xlsx
 0.2.1   - added support to use csv file or download from wiski directly
+0.2.2   - added future climate, cleaned up main function
 
 ****************************
 ***** Future work
 ****************************
 1. read rainfall data from wiski directly (added in version 0.2.1)
-2. also overlay with future climate IDF curves
+2. also overlay with future climate IDF curves (added in version 0.2.2)
 3. double check zone idf values (updated in version 0.2.1)
 4. options to switch between "forward accumulation" and "backward accumulation"
 5. air quality rain gauge data (zone, index rain, rainfall time series from wiski)
@@ -133,3 +138,4 @@ Requires-Dist: pandas>=2.3.3
 7. work on multiple rain gauges with same start/end dates
 8. show starting time of the max depth (added in version 0.2)
 9. add return periods next to AEP (added in version 0.2)
+10. make stormoverlay callable in python (added in version 0.2.2)

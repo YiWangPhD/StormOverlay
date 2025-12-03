@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # coding: utf-8
 # author: YWANG
-# version: 0.2.1
+# version: 0.2.2
 
 import os
 import pandas as pd
@@ -40,9 +40,9 @@ def load_csv(csv_filename, start_date, end_date):
     return df
 
 def test_load_csv():
-    csv_filename = 'BU07_rain.csv'
-    start_date = '2024-10-17'
-    end_date = '2024-10-22'
+    csv_filename = 'WISKI_BU07_2021-11-12_2021-11-19.csv'
+    start_date = '2021-11-12'
+    end_date = '2021-11-19'
     df = load_csv(csv_filename, start_date, end_date)
     print(df)
 
