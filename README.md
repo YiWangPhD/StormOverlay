@@ -16,7 +16,7 @@
 
 1. This tool extracts AEP based on GHD 2024 IDF
 
-2. It uses IDF curves for existing climate
+2. It uses IDF curves for existing and future climates
 
 3. It uses index rain from GHD report appendix
 
@@ -27,6 +27,8 @@
 1. create a new enviornment in anaconda. must use python version 3.11
 	
 	conda create --name py311_storm python=3.11
+
+	You may instead install this tool into the py311_mike environment
 	
 2. activate the new environment
 
@@ -34,7 +36,7 @@
 
 3. install the tool
 	
-	pip install "J:\TOOLS\StormOverlay\stormoverlay-0.2.2-py3-none-any.whl" --trusted-host pypi.python.org
+	pip install "J:\TOOLS\StormOverlay\stormoverlay-0.2.3-py3-none-any.whl" --trusted-host pypi.python.org
 		
 ****************************
 ***** How to upgrade to newer versions
@@ -46,9 +48,9 @@
 
 2. install the tool
 	
-	pip install "J:\TOOLS\StormOverlay\stormoverlay-0.2.2-py3-none-any.whl" --trusted-host pypi.python.org --force-reinstall
+	pip install "J:\TOOLS\StormOverlay\stormoverlay-0.2.3-py3-none-any.whl" --trusted-host pypi.python.org --force-reinstall
 	
-	note that the whl file should have a newer version number
+	note that the whl file should have a newer version number than your existing version
 	
 ****************************
 ***** How to use
@@ -84,9 +86,11 @@
 	
 	rainfall data will be downloaded from wiski
 	
-5. use --climate to select a different set of IDF curves. supported climate key words are: EX, 2050M, 2050H, 2100M, 2100H
+5. use --climate to select a different set of IDF curves. supported climate key words are: EX, 2050M, 2050H, 2100M, 2100H, ALL
 	
 	stormoverlay BU07 2024-10-10 2024-10-20 --climate 2050M
+
+	use --climate ALL to get results for all available climates
 
 6. results are displayed in conda prompt. 
     to save a csv file, use option --savecsv at the end of the command
@@ -114,6 +118,7 @@
 0.2		- added return periods to AEP, added date time columns, export to csv, created idf_template.xlsx
 0.2.1   - added support to use csv file or download from wiski directly
 0.2.2   - added future climate, cleaned up main function
+0.2.3	- added option to get results of all climates
 
 ****************************
 ***** Future work
@@ -128,3 +133,5 @@
 8. show starting time of the max depth (added in version 0.2)
 9. add return periods next to AEP (added in version 0.2)
 10. make stormoverlay callable in python (added in version 0.2.2)
+11. option for all climate (added in version 0.2.3)
+12. try catch raise

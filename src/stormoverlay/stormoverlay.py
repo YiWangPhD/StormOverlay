@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # coding: utf-8
 # author: YWANG
-# version: 0.2.1
+# version: 0.2.3
 
 import sys
 import pandas as pd
@@ -40,9 +40,14 @@ def check_inputs(start_date, end_date, climate_id):
     if not (start_date < end_date):
         print('start date must be earlier than end date')
         exit()
-    if climate_id not in data.CLIMATES:
+    if climate_id.lower() == 'all':
+        # return all climate
+        return list(data.CLIMATES.keys())
+    if climate_id.upper() not in data.CLIMATES:
         print('Wrong climate ID. Only use EX, 2050M, 2050H, 2100M, 2100H')
         exit()
+    else:
+        return [climate_id.upper()]
 
 def load_idf_curves(gauge_id, climate_id):
     """
@@ -249,7 +254,7 @@ def main():
     parser.add_argument('end_date', help='End date of the storm event')
     parser.add_argument('--dfs0', default=None, help='File path to the dfs0 file')
     parser.add_argument('--csv', default=None, help='File path to the csv file')
-    parser.add_argument('--climate', default='EX', help='Climate ID: EX, 2050M, 2050H, 2100M, 2100H')
+    parser.add_argument('--climate', default='EX', help='Climate ID: EX, 2050M, 2050H, 2100M, 2100H, ALL')
     parser.add_argument('--savecsv', action='store_true', 
                         help='export result to csv file')
     args = parser.parse_args()
@@ -263,20 +268,21 @@ def main():
     savecsv = args.savecsv
     
     # check user inputs
-    check_inputs(start_date, end_date, climate_id)
+    climate_ids = check_inputs(start_date, end_date, climate_id)
 
     # load rainfall time series
     rainfall_df = load_ts(dfs0_filename, csv_filename, gauge_id, start_date, end_date)
-            
-    # processing
-    idf_df = calculate_aep(rainfall_df, gauge_id, climate_id)
-    
-    # print to screen
-    display_results(idf_df, gauge_id, start_date, end_date, climate_id)
-    
-    # export to csv
-    if savecsv:
-        export_results(idf_df, gauge_id, start_date, end_date, climate_id)
+         
+    for climate_id in climate_ids:
+        # processing
+        idf_df = calculate_aep(rainfall_df, gauge_id, climate_id)
+        
+        # print to screen
+        display_results(idf_df, gauge_id, start_date, end_date, climate_id)
+        
+        # export to csv
+        if savecsv:
+            export_results(idf_df, gauge_id, start_date, end_date, climate_id)
 
 if __name__ == '__main__':
     main()
