@@ -118,7 +118,7 @@
 0.2		- added return periods to AEP, added date time columns, export to csv, created idf_template.xlsx
 0.2.1   - added support to use csv file or download from wiski directly
 0.2.2   - added future climate, cleaned up main function
-0.2.3	- added option to get results of all climates
+0.2.3	- added option to get results of all climates, added CG and Totem
 
 ****************************
 ***** Future work
