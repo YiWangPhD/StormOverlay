@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # coding: utf-8
 # author: YWANG
-# version: 0.2.3
+# version: 0.2.4
 
 import pandas as pd
 
@@ -45,7 +45,7 @@ class IDF():
         idf_df = self.get_idf()
         durations = idf_df.index
         for du in durations:
-            ds = idf_df.loc[du,]
+            ds = idf_df.loc[du,].dropna()
             depth = rainfall_max.loc[du].item()
             ds = ds[ds < depth]
             if ds.size == 0:

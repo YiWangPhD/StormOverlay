@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # coding: utf-8
 # author: YWANG
-# version: 0.2.1
+# version: 0.2.4
 
 import sys
 import pandas as pd

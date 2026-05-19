@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # coding: utf-8
 # author: YWANG
-# version: 0.2.2
+# version: 0.2.4
 
 import pandas as pd
 import numpy as np

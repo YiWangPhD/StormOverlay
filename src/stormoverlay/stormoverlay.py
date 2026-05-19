@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # coding: utf-8
 # author: YWANG
-# version: 0.2.3
+# version: 0.2.4
 
 import sys
 import pandas as pd
@@ -65,7 +65,14 @@ def load_idf_curves(gauge_id, climate_id):
     idf_curves : data frame of pandas data frames
 
     """
-    zone = f'Zone {data.ZONES[gauge_id]}'
+    zone_id = data.ZONES[gauge_id]
+    if zone_id == 0:
+        print(f'Rain gauge {gauge_id} is not in any IDF zones')
+        exit()
+    if zone_id == 7:
+        print(f'IDF curves are not available for Zone 7 rain gauge {gauge_id}')
+        exit()
+    zone = f'Zone {zone_id}'
     idf_curves = idf.IDF(zone, climate_id, data.INDEX_RAINS[gauge_id], data.IDF[climate_id][zone])
     return idf_curves
 

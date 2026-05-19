@@ -36,7 +36,7 @@
 
 3. install the tool
 	
-	pip install "J:\TOOLS\StormOverlay\stormoverlay-0.2.3-py3-none-any.whl" --trusted-host pypi.python.org
+	pip install "J:\TOOLS\StormOverlay\stormoverlay-0.2.4-py3-none-any.whl" --trusted-host pypi.python.org
 		
 ****************************
 ***** How to upgrade to newer versions
@@ -48,7 +48,7 @@
 
 2. install the tool
 	
-	pip install "J:\TOOLS\StormOverlay\stormoverlay-0.2.3-py3-none-any.whl" --trusted-host pypi.python.org --force-reinstall
+	pip install "J:\TOOLS\StormOverlay\stormoverlay-0.2.4-py3-none-any.whl" --trusted-host pypi.python.org --force-reinstall
 	
 	note that the whl file should have a newer version number than your existing version
 	
@@ -119,6 +119,7 @@
 0.2.1   - added support to use csv file or download from wiski directly
 0.2.2   - added future climate, cleaned up main function
 0.2.3	- added option to get results of all climates, added CG and Totem
+0.2.4   - added zone 0 and zone 7 error messages
 
 ****************************
 ***** Future work
