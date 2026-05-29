@@ -5,6 +5,7 @@
 # this module includes functions to calculate statistics for data frames
 
 import pandas as pd
+import numpy as np
 
 def max_block(s, window):
     """
@@ -27,7 +28,7 @@ def max_block(s, window):
     """
     s = s.rolling(window).sum()
     s = s[(s.index[0] + pd.Timedelta(window)):]
-    return {'MaxDepth': s.max().round(3).item(), 'MaxTimeStart': f'{s.idxmax() - pd.Timedelta(window)}', 'MaxTimeEnd':f'{s.idxmax()}'}
+    return {'MaxDepth': np.round(s.max(), 3).item(), 'MaxTimeStart': f'{s.idxmax() - pd.Timedelta(window)}', 'MaxTimeEnd':f'{s.idxmax()}'}
 
 def get_duration_max(s, durations):
     """
