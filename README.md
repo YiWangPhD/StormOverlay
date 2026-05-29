@@ -119,7 +119,7 @@
 0.2.1   - added support to use csv file or download from wiski directly
 0.2.2   - added future climate, cleaned up main function
 0.2.3	- added option to get results of all climates, added CG and Totem
-0.2.4   - added zone 0 and zone 7 error messages
+0.2.4   - added zone 0 and zone 7 error messages, fixed bug when 48h or 72h index rain is none
 
 ****************************
 ***** Future work
