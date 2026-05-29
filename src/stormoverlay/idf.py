@@ -45,7 +45,7 @@ class IDF():
         idf_df = self.get_idf()
         durations = idf_df.index
         for du in durations:
-            ds = idf_df.loc[du,].dropna()
+            ds = idf_df.loc[du].dropna()
             depth = rainfall_max.loc[du].item()
             ds = ds[ds < depth]
             if ds.size == 0:
@@ -56,7 +56,7 @@ class IDF():
         return rainfall_aep
         
 def test_IDF():
-    import data
+    import stormoverlay.data as data
     gauge_id = 'BU07'
     zone = f'Zone {data.ZONES[gauge_id]}'
     idf = IDF(zone, 'Ex', data.INDEX_RAINS[gauge_id], data.IDF[zone])

@@ -15,3 +15,4 @@ src/stormoverlay.egg-info/dependency_links.txt
 src/stormoverlay.egg-info/entry_points.txt
 src/stormoverlay.egg-info/requires.txt
 src/stormoverlay.egg-info/top_level.txt
+src/tests/test_stormoverlay.py
